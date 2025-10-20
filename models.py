@@ -1,4 +1,3 @@
-@ -1,222 +0,0 @@
 """
 Model/Types utilities for Python 3.13+.
 
