@@ -22,3 +22,4 @@ dev = [
     "ruff>=0.15.12",
     "ssort>=0.16.0",
 ]
+notes = ["jupyterlab>=4.5.7"]
