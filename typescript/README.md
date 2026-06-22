@@ -47,6 +47,21 @@ import { create_store } from "nanostore";
 // or: import create_store from "nanostore";
 ```
 
+### In the browser (no bundler)
+
+Drop the IIFE build in with a `<script>` tag — it exposes a global `nanostore`:
+
+```html
+<script src="https://unpkg.com/nanostore/dist/index.global.js"></script>
+<script>
+  const store = nanostore.create_store({ count: 0 });
+  store.subscribe("count", (n) => console.log("count:", n));
+  store.set("count", 1);
+</script>
+```
+
+Or self-host `dist/index.global.js` (minified, ~7 KB).
+
 ---
 
 ## Core concepts
@@ -264,7 +279,7 @@ derived and internal writes use `base`. All subscriptions live on the shared
 ```bash
 npm install
 npm run typecheck   # tsc --noEmit (strict)
-npm run build       # emit ESM + CJS + .d.ts to dist/
+npm run build       # emit ESM + CJS + IIFE + .d.ts to dist/
 ```
 
 Built with [tsup](https://tsup.egoist.dev/); type-checked with TypeScript in

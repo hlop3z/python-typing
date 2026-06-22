@@ -6,16 +6,19 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "unpkg": "./dist/index.global.js",
+  "jsdelivr": "./dist/index.global.js",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
-    }
+    },
+    "./global": "./dist/index.global.js"
   },
   "files": ["dist"],
   "scripts": {
-    "build": "tsup --entry.index src/__init__.ts --format esm,cjs --dts --clean",
+    "build": "tsup --entry.index src/__init__.ts --format esm,cjs,iife --global-name nanostore --minify --dts --clean",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
